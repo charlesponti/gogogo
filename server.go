@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"ponti-gogogo/graph"
+	"pontistudios/gogogo/graph"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"

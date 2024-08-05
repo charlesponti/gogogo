@@ -7,7 +7,8 @@ package graph
 import (
 	"context"
 	"fmt"
-	"ponti-gogogo/graph/model"
+	"pontistudios/gogogo/finance"
+	"pontistudios/gogogo/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.
@@ -15,9 +16,41 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
 }
 
+// CalculateGoal is the resolver for the calculateGoal field.
+func (r *mutationResolver) CalculateGoal(ctx context.Context, input model.BudgetInput) (*model.GoalCalculationOutput, error) {
+	// Extract years and goals from input
+	years := input.Years // Assuming the years are stored in this field of BudgetInput
+	goals := input.Goals // Assuming the goals are stored in this field of BudgetInput (adjust based on your model)
+
+	annualPreTaxIncome, monthlyPreTaxIncome, err := (&finance.FinanceResolver{}).CalculateGoal(ctx, input, years, goals)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.GoalCalculationOutput{
+		AnnualPreTaxIncome:  annualPreTaxIncome,
+		MonthlyPreTaxIncome: monthlyPreTaxIncome,
+	}, nil
+}
+
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	panic(fmt.Errorf("not implemented: Todos - todos"))
+}
+
+// Expenses is the resolver for the expenses field.
+func (r *queryResolver) Expenses(ctx context.Context) ([]*model.Expense, error) {
+	panic(fmt.Errorf("not implemented: Expenses - expenses"))
+}
+
+// Goals is the resolver for the goals field.
+func (r *queryResolver) Goals(ctx context.Context) ([]*model.Goal, error) {
+	panic(fmt.Errorf("not implemented: Goals - goals"))
+}
+
+// Budget is the resolver for the budget field.
+func (r *queryResolver) Budget(ctx context.Context) (*model.Budget, error) {
+	panic(fmt.Errorf("not implemented: Budget - budget"))
 }
 
 // Mutation returns MutationResolver implementation.
