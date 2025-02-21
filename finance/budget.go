@@ -2,7 +2,7 @@ package finance
 
 import (
 	"context"
-	"pontistudios/gogogo/graph/model"
+	"gogogo/server/graph/model"
 )
 
 type FinanceResolver struct{}

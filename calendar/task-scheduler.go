@@ -17,7 +17,7 @@ type Task struct {
 // scheduleTask attempts to schedule a task in the user's Google Calendar
 func scheduleTask(srv *calendar.Service, task Task) error {
 	// Create a context with a timeout of 1 minute
-	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
+	_, cancel := context.WithTimeout(context.Background(), time.Minute)
 	defer cancel()
 
 	// Get the user's primary calendar ID

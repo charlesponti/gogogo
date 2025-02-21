@@ -1,0 +1,10 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+ignoreWords:
+  - "pontistudios"
+  - "todos"
+  - "gogogo"
+  - "graphqls"
+  - "todos"
+ignorePaths:
+  - "node_modules"
+  - "cspell.config.yaml"

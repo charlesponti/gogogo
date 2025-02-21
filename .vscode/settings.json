@@ -1,7 +1,13 @@
 {
-  "cSpell.allowCompoundWords": true,
-  "cSpell.customDictionaries": {
-    "typescript": true
-  },
-  "cSpell.ignoreWords": ["pontistudios", "gogogo", "graphqls"]
+	"cSpell.allowCompoundWords": true,
+	"cSpell.customDictionaries": {
+		"typescript": true
+	},
+	"gopls": {
+		"buildFlags": ["-tags=tools"],
+		"build.directoryFilters": [
+			"-**/node_modules",
+			"-./tools.go",
+		]
+	}
 }
